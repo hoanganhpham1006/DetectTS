@@ -227,10 +227,10 @@ void train(Ptr<TrainData> trainData) {
 		cerr << e.msg << endl;
 	}
 }
-int predict(Mat test_img) {
+
+int predict(Mat test_img, Ptr<SVM> svm) {
 	try {
-		Ptr<SVM> svm = SVM::create();
-		svm = svm->load("svm.xml");
+		
 		test_img = preprocess(test_img);
 		Mat test_img_mat(1, width * height, CV_32FC1);
 		int x = 0;
